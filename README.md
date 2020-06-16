@@ -1,4 +1,4 @@
-# Game-Dev-Toolbox
+# Game Dev Toolbox
 
 ### *Find the right tools for your next game, all in one convenient place!*
 

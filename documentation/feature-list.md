@@ -13,3 +13,4 @@
 ### Stretch Goals
 
 - Users can like / comment on build pages.
+- Profile displays user's likes and comments.

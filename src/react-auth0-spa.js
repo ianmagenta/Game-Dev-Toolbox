@@ -31,26 +31,20 @@ export const Auth0Provider = ({ children, onRedirectCallback = DEFAULT_REDIRECT_
 
       if (isAuthenticated) {
         const user = await auth0FromHook.getUser();
-        const token = await auth0FromHook.getTokenSilently(); //custom
-        setUser(user);
 
         // Everything in this block was added by me.
-        try {
-          console.log("user time: ", user.id);
-          console.log("Token time: ", token);
-          const res = await axios({
-            url: `${api}/users`,
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-            method: "post",
-            data: JSON.stringify("hello"),
-          });
-        } catch (err) {
-          console.error("It's error time: ", err);
-        }
+        const token = await auth0FromHook.getTokenSilently(); //custom
+        await axios({
+          url: `${api}/users`,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          method: "post",
+          data: user.id,
+        });
         // End of custom block.
+
+        setUser(user);
       }
 
       setLoading(false);

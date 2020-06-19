@@ -1,6 +1,8 @@
 // src/react-auth0-spa.js
 import React, { useState, useEffect, useContext } from "react";
 import createAuth0Client from "@auth0/auth0-spa-js";
+import axios from "axios";
+import { api } from "./config";
 
 const DEFAULT_REDIRECT_CALLBACK = () => window.history.replaceState({}, document.title, window.location.pathname);
 
@@ -29,7 +31,26 @@ export const Auth0Provider = ({ children, onRedirectCallback = DEFAULT_REDIRECT_
 
       if (isAuthenticated) {
         const user = await auth0FromHook.getUser();
+        const token = await auth0FromHook.getTokenSilently(); //custom
         setUser(user);
+
+        // Everything in this block was added by me.
+        try {
+          console.log("user time: ", user.id);
+          console.log("Token time: ", token);
+          const res = await axios({
+            url: `${api}/users`,
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            method: "post",
+            data: JSON.stringify("hello"),
+          });
+        } catch (err) {
+          console.error("It's error time: ", err);
+        }
+        // End of custom block.
       }
 
       setLoading(false);

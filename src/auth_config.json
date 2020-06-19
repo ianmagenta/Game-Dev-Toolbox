@@ -1,4 +1,5 @@
 {
   "domain": "game-dev-toolbox.us.auth0.com",
-  "clientId": "lWK2mI0u0JSKF0S98E9gmn7wJPqwlJ2F"
+  "clientId": "lWK2mI0u0JSKF0S98E9gmn7wJPqwlJ2F",
+  "audience": "gdt_api"
 }

@@ -33,14 +33,14 @@ export const Auth0Provider = ({ children, onRedirectCallback = DEFAULT_REDIRECT_
         const user = await auth0FromHook.getUser();
 
         // Everything in this block was added by me.
-        const token = await auth0FromHook.getTokenSilently(); //custom
+        const token = await auth0FromHook.getTokenSilently();
         await axios({
           url: `${api}/users`,
           headers: {
             Authorization: `Bearer ${token}`,
           },
           method: "post",
-          data: user.id,
+          data: user,
         });
         // End of custom block.
 

@@ -228,7 +228,7 @@ var main = {
       type: "circle",
       radius: { 0: 15 },
       fill: "transparent",
-      stroke: "white",
+      stroke: "#f3ede3",
       strokeWidth: { 5: 0 },
       x: "50%",
       y: "50%",
@@ -267,7 +267,7 @@ var main = {
       type: "circle",
       radius: { 0: 10 },
       fill: "transparent",
-      stroke: "white",
+      stroke: "#f3ede3",
       strokeWidth: { 5: 0 },
       x: "-20%",
       y: "-50%",
@@ -324,7 +324,7 @@ var main = {
       parent: this.closeBtn,
       radius: { 0: 100 },
       type: "circle",
-      fill: "white",
+      fill: "#f3ede3",
       degree: 25,
       isSwirl: true,
       randomRadius: 1,
@@ -349,7 +349,7 @@ var main = {
       type: "circle",
       radius: { 0: 15 },
       fill: "transparent",
-      stroke: "white",
+      stroke: "#f3ede3",
       strokeWidth: { 8: 0 },
       isRunLess: true,
       duration: 500 * this.S,
@@ -366,6 +366,8 @@ var main = {
 
     var innerEl = this.currentEl.querySelector(".particle__inner"),
       scaleDownTween = new mojs.Tween();
+
+    innerEl.style.opacity = 0.7;
 
     var scaleDownTimeline = new mojs.Timeline({
       duration: 500 * this.S,
@@ -634,11 +636,11 @@ var main = {
       duration: 600 * this.S,
       delay: 350 * this.S,
       onUpdate: (p) => {
-        var scaleSize = 19 * mojs.easing.cubic.in(p);
+        var scaleSize = 25 * mojs.easing.cubic.in(p);
         scaleSize = Math.max(0.75, scaleSize);
         var scale = `scale(${scaleSize})`;
         mojs.h.setPrefixedStyle(innerEl, "transform", scale);
-        innerEl.style.opacity = 0.75 + 0.25 * mojs.easing.cubic.out(p);
+        innerEl.style.opacity = 0.75 + 0.21 * mojs.easing.cubic.out(p);
       },
       onStart: () => {
         setTimeout(() => {
@@ -652,6 +654,12 @@ var main = {
 
     tween.add(scaleDownTween, soundTimeline, blobTimeline, scaleUpTimeline);
     tween.start();
+    const photon = document.querySelector(".cub-1 .bm .photon-shader");
+    const selectedImage = el.querySelector(".particle__inner");
+    photon.style.backgroundImage = selectedImage.parentNode.style.backgroundImage;
+    photon.style.backgroundSize = "contain";
+    photon.style.backgroundPosition = "center center";
+    photon.style.backgroundRepeat = "no-repeat";
   },
 };
 

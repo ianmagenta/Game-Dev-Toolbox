@@ -463,7 +463,7 @@ body {
   height: 12em;
 }
 .cub-1 .face {
-  background-color: #f3ede3;
+  background-color: #1e1610;
 }
 .cub-1 .ft {
   width: 14em;
@@ -537,4 +537,59 @@ body {
 }
 .cub-1 .side {
   width: 0.560898384862245em;
+}
+
+/* cooper-black-std, serif */
+
+/* body {
+  background-color: #494949;
+  padding-top: 50px;
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+} */
+
+/* Copyright (c) 2020 by Karim Balaa (https://codepen.io/karimbalaa/pen/bHfCk)
+Fork of an original work UI Button SVG/CSS3 hover effect (https://codepen.io/sreucherand/pen/gHDaI
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+.btn {
+  position: relative;
+  display: inline-block;
+  width: 166px;
+  height: 45px;
+  font-size: 14px;
+  line-height: 45px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #f3ede3;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.btn svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.btn svg rect {
+  fill: none;
+  stroke: #f3ede3;
+  stroke-width: 10;
+  stroke-dasharray: 422, 0;
+  -webkit-transition: all 900ms cubic-bezier(0.19, 1, 0.22, 1);
+  -moz-transition: all 900ms cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all 900ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.btn:hover svg rect {
+  stroke-width: 10;
+  stroke-dasharray: 110, 312;
+  stroke-dashoffset: 183;
 }

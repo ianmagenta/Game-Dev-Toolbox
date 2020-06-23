@@ -7,6 +7,7 @@ import * as serviceWorker from "./serviceWorker";
 import { Auth0Provider } from "./react-auth0-spa";
 import config from "./auth_config.json";
 import history from "./utils/history";
+import "semantic-ui-css/semantic.min.css";
 
 // A function that routes the user to the right place
 // after login

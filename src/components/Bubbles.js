@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Bubbles = () => {
   return (
@@ -8,6 +9,7 @@ const Bubbles = () => {
         src="/bubbleDemo/index.html"
         frameBorder={0}
         allowtransparency="true"
+        link={Link}
         style={{
           position: "fixed",
           top: 0,

@@ -38,18 +38,19 @@ import {
   Icon,
   SegmentGroup,
 } from "semantic-ui-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useAuth0 } from "../react-auth0-spa";
 
-const NavBar = () => {
+const NavBar = (props) => {
   const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
   const [activeItem, setActiveItem] = useState("home");
+  const location = useLocation();
 
   useEffect(() => {
-    if (window.location.href.includes("/tools/")) {
+    if (location.pathname.includes("/tools/")) {
       setActiveItem("none");
     }
-  }, [window.location.href]);
+  }, [location]);
 
   const handleItemClick = (event, { name }) => {
     setActiveItem(name);

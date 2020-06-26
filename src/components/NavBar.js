@@ -41,6 +41,7 @@ const NavBar = (props) => {
       setActiveItem("user");
     } else if (location.pathname === "/") {
       setActiveItem("home");
+    } else if (location.pathname === "/info") {
     } else {
       setActiveItem("none");
     }

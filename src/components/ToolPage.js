@@ -13,13 +13,14 @@ import {
   Label,
   Card,
   Divider,
+  Loader,
 } from "semantic-ui-react";
 import axios from "axios";
 import { api } from "../config";
 import { Link } from "react-router-dom";
 
 const ToolPage = (props) => {
-  const { isAuthenticated, loginWithRedirect, user, getTokenSilently } = useAuth0();
+  const { isAuthenticated, user, getTokenSilently, loginWithPopup } = useAuth0();
   const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
   const [dLink, setDLink] = useState("");
@@ -28,6 +29,8 @@ const ToolPage = (props) => {
   const [wLink, setWLink] = useState("");
   const [associated, setAssociated] = useState([]);
   const [backAssociated, setBackAssociated] = useState([]);
+  const [tagged, setTagged] = useState(false);
+  const [loadingTag, setLoadingTag] = useState(true);
   const toolId = props.match.params.id;
 
   useEffect(() => {
@@ -49,10 +52,34 @@ const ToolPage = (props) => {
     getGameInfo();
   }, [toolId]);
 
+  useEffect(() => {
+    async function getTagInfo() {
+      setLoadingTag(true);
+      if (isAuthenticated && user) {
+        const token = await getTokenSilently();
+        const tagRes = await axios({
+          url: `${api}/tags/is_tagged`,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          method: "post",
+          data: { id: user.sub, tool: toolId },
+        });
+        const tagData = tagRes.data;
+        setTagged(tagData.tagged);
+        setLoadingTag(false);
+      } else {
+        setLoadingTag(false);
+      }
+    }
+    getTagInfo();
+  }, [isAuthenticated, getTokenSilently, toolId, user]);
+
   const handleTagClick = async (e) => {
-    if (isAuthenticated) {
+    if (isAuthenticated && user) {
+      setLoadingTag(true);
       const token = await getTokenSilently();
-      await axios({
+      const res = await axios({
         url: `${api}/tags`,
         headers: {
           Authorization: `Bearer ${token}`,
@@ -60,8 +87,10 @@ const ToolPage = (props) => {
         method: "post",
         data: { id: user.sub, tool: toolId },
       });
+      setTagged(res.data.tagged);
+      setLoadingTag(false);
     } else {
-      loginWithRedirect({});
+      loginWithPopup();
     }
   };
 
@@ -90,6 +119,7 @@ const ToolPage = (props) => {
                       display: "flex",
                       justifyContent: "center",
                       height: "100%",
+                      width: "100%",
                       alignItems: "center",
                     }}
                   >
@@ -116,16 +146,34 @@ const ToolPage = (props) => {
                   <div
                     style={{
                       position: "absolute",
-                      top: -15,
-                      right: 85,
+                      top: -17,
+                      right: 100,
                     }}
                   >
-                    <Label floating style={{ color: "#1e1610", backgroundColor: "#f3ede3" }}>
-                      <a style={{ display: "flex", alignItems: "center", fontSize: "1.25em" }} onClick={handleTagClick}>
-                        <Icon name="tag"></Icon>
-                        Tag this Tool
-                      </a>
-                    </Label>
+                    {loadingTag ? (
+                      <Label floating style={{ color: "#1e1610", backgroundColor: "#f3ede3", textAlign: "center" }}>
+                        <a
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            fontSize: "1.25em",
+                            pointerEvents: "none",
+                          }}
+                        >
+                          <Icon size="big" loading name="circle notch" style={{ margin: "auto" }} />
+                        </a>
+                      </Label>
+                    ) : (
+                      <Label floating style={{ color: "#1e1610", backgroundColor: "#f3ede3", textAlign: "center" }}>
+                        <a
+                          style={{ display: "flex", alignItems: "center", fontSize: "1.25em" }}
+                          onClick={handleTagClick}
+                        >
+                          {tagged ? <Icon name="check"></Icon> : <Icon name="tag"></Icon>}
+                          {tagged ? "Tool Tagged" : "Tag this Tool"}
+                        </a>
+                      </Label>
+                    )}
                   </div>
                 )}
                 <Card.Content textAlign="center">

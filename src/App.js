@@ -3,14 +3,14 @@
 import React from "react";
 import NavBar from "./components/NavBar";
 import HomePage from "./components/HomePage";
-import ContentProvider, { ContextProvider } from "./Context";
+import { ContextProvider } from "./Context";
 
 // New - import the React Router components, and the Profile page component
 import { Router, Route, Switch } from "react-router-dom";
-import Profile from "./components/Profile";
 import history from "./utils/history";
-import PrivateRoute from "./components/PrivateRoute";
+// import PrivateRoute from "./components/PrivateRoute";
 import ToolPage from "./components/ToolPage";
+import Profile from "./components/Profile";
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path="/tools/:id" component={ToolPage} />
-            <PrivateRoute path="/profile" component={Profile} />
+            <Route exact path="/profile" component={Profile} />
           </Switch>
         </Router>
       </ContextProvider>

@@ -11,7 +11,7 @@ const Profile = () => {
 
   return (
     <>
-      {!isAuthenticated && (
+      {isAuthenticated ? null : (
         <Container style={{ paddingTop: 105 }}>
           <Card fluid style={{ boxShadow: "none", backgroundColor: "#f2bb4e" }}>
             <Card.Content textAlign="center">

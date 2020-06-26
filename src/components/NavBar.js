@@ -37,10 +37,12 @@ const NavBar = (props) => {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.pathname.includes("/tools/")) {
-      setActiveItem("none");
-    } else if (location.pathname.includes("/profile")) {
+    if (location.pathname === "/profile") {
       setActiveItem("user");
+    } else if (location.pathname === "/") {
+      setActiveItem("home");
+    } else {
+      setActiveItem("none");
     }
   }, [location]);
 

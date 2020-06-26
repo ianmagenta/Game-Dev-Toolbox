@@ -11,6 +11,7 @@ import history from "./utils/history";
 // import PrivateRoute from "./components/PrivateRoute";
 import ToolPage from "./components/ToolPage";
 import Profile from "./components/Profile";
+import Bubbles from "./components/Bubbles";
 
 function App() {
   return (
@@ -22,8 +23,8 @@ function App() {
             <NavBar />
           </header>
           <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route exact path="/tools/:id" component={ToolPage} />
+            <Route exact path="/" history={history} component={Bubbles} />
+            <Route exact path="/tools/:id" history={history} component={ToolPage} />
             <Route exact path="/profile" component={Profile} />
           </Switch>
         </Router>

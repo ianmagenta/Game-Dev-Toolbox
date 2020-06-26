@@ -1,18 +1,19 @@
 import React, { useEffect } from "react";
-import { useHistory } from "react-router-dom";
 
-const Bubbles = () => {
-  const history = useHistory();
-
+const Bubbles = (props) => {
   useEffect(() => {
     window.addEventListener("message", receiveMessage, false);
 
     function receiveMessage(event) {
       if (event.data.bubbles) {
-        history.push("/tools/" + event.data.data);
+        if (props.history.location.state) {
+          props.history.replace("/tools/" + event.data.data, { type: "redirect" });
+        } else {
+          props.history.push("/tools/" + event.data.data, { type: "redirect" });
+        }
       }
     }
-  }, []);
+  }, [props.history]);
 
   return (
     <div>

@@ -124,7 +124,7 @@ const ToolPage = (props) => {
                     }}
                   >
                     {image ? (
-                      <Image size="medium" centered src={image}></Image>
+                      <Image size="medium" centered src={image} style={{ maxWidth: "max-content" }}></Image>
                     ) : image === null || image === undefined ? (
                       <Icon
                         size="huge"

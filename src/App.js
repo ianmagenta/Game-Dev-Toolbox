@@ -2,7 +2,6 @@
 
 import React from "react";
 import NavBar from "./components/NavBar";
-import HomePage from "./components/HomePage";
 import { ContextProvider } from "./Context";
 
 // New - import the React Router components, and the Profile page component

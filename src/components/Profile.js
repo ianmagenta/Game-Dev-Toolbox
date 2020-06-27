@@ -1,9 +1,121 @@
 import React, { useEffect, useState } from "react";
 import { useAuth0 } from "../react-auth0-spa";
-import { Container, Card, Segment, Icon, Header, Label } from "semantic-ui-react";
+import { Container, Card, Segment, Icon, Header, Label, Image, Tab, Table } from "semantic-ui-react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { api } from "../config";
 
 const Profile = () => {
-  const { user, isAuthenticated, loginWithPopup } = useAuth0();
+  const { user, isAuthenticated, loginWithPopup, getTokenSilently } = useAuth0();
+  const [tags, setTags] = useState([]);
+  const [loadingTags, setLoadingTags] = useState(true);
+
+  const handleRemoveTags = (e) => {
+    e.preventDefault();
+    async function doTheThing() {
+      const value = e.currentTarget;
+      const number = parseInt(value.id, 10);
+      const toolId = tags[number].tool.id;
+      const newState = [...tags.slice(0, number), ...tags.slice(number + 1, tags.length)];
+      const token = await getTokenSilently();
+      setTags(newState);
+      await axios({
+        url: `${api}/tags`,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        method: "post",
+        data: { id: user.sub, tool: toolId },
+      });
+    }
+    doTheThing();
+  };
+
+  const panes = [
+    {
+      menuItem: { key: "tags", icon: "tag", content: "Tags" },
+      render: () => (
+        <Tab.Pane loading={loadingTags} style={{ color: "#f3ede3", backgroundColor: "#1e1610", border: "none" }}>
+          <Table inverted style={{ backgroundColor: "#1e1610" }}>
+            <Table.Body>
+              {!tags.length > 0 ? (
+                <Table.Row>
+                  <Table.Cell textAlign="center">
+                    <Header as="h1" content={"— Nothing Here Yet —"} style={{ color: "#f3ede3" }} />
+                    <Label style={{ color: "#1e1610", backgroundColor: "#f3ede3", textAlign: "center" }}>
+                      <Link to="/tools/3" style={{ display: "flex", alignItems: "center", fontSize: "1.5em" }}>
+                        <Icon name="tag"></Icon>
+                        Tag some tools!
+                      </Link>
+                    </Label>
+                  </Table.Cell>
+                </Table.Row>
+              ) : (
+                <>
+                  {tags.map((item, index) => (
+                    <Table.Row key={item.tool.tool_name}>
+                      <Table.Cell>
+                        <Header
+                          as="h1"
+                          icon="tag"
+                          content={item.tool.tool_name}
+                          style={{ color: "#f3ede3", margin: 0 }}
+                        />
+                      </Table.Cell>
+                      <Table.Cell textAlign="right">
+                        <Label style={{ color: "#1e1610", backgroundColor: "#f3ede3", textAlign: "center" }}>
+                          <a
+                            onClick={handleRemoveTags}
+                            id={index}
+                            style={{ display: "flex", alignItems: "center", fontSize: "1.5em" }}
+                          >
+                            <Icon name="x"></Icon>
+                            Remove Tag
+                          </a>
+                        </Label>
+                      </Table.Cell>
+                    </Table.Row>
+                  ))}
+                </>
+              )}
+            </Table.Body>
+          </Table>
+        </Tab.Pane>
+      ),
+    },
+    {
+      menuItem: { key: "projects", icon: "edit", content: "Projects" },
+      render: () => (
+        <Tab.Pane style={{ color: "#f3ede3", backgroundColor: "#1e1610", border: "none" }}>Tab 2 Content</Tab.Pane>
+      ),
+    },
+    {
+      menuItem: { key: "likes", icon: "heart", content: "Likes" },
+      render: () => (
+        <Tab.Pane style={{ color: "#f3ede3", backgroundColor: "#1e1610", border: "none" }}>Tab 3 Content</Tab.Pane>
+      ),
+    },
+  ];
+
+  useEffect(() => {
+    async function getUserInfo() {
+      if (isAuthenticated && user) {
+        setLoadingTags(true);
+        const token = await getTokenSilently();
+        const res = await axios({
+          url: `${api}/tags/user/${user.sub}`,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          method: "get",
+        });
+        console.log(Object.values(res.data));
+        setTags(Object.values(res.data));
+        setLoadingTags(false);
+      }
+    }
+    getUserInfo();
+  }, [isAuthenticated, user, getTokenSilently]);
 
   const handleSignUp = (e) => {
     loginWithPopup();
@@ -11,7 +123,50 @@ const Profile = () => {
 
   return (
     <>
-      {isAuthenticated ? null : (
+      {isAuthenticated && user ? (
+        <Container style={{ paddingTop: 105 }}>
+          <Card fluid style={{ boxShadow: "none", backgroundColor: "#f2bb4e" }}>
+            <Card.Content textAlign="center">
+              <Segment
+                inverted
+                style={{
+                  boxShadow: "none",
+                  backgroundColor: "#1e1610",
+                  width: "100%",
+                  height: "100%",
+                  display: "flex",
+                  justifyContent: "space-evenly",
+                }}
+              >
+                <Image size="medium" circular src={user.picture} />
+
+                <div
+                  style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}
+                >
+                  {user.name.split(" ").map((word) => (
+                    <Card.Header
+                      key={word}
+                      as="h1"
+                      style={{ margin: 0, color: "#f3ede3", fontSize: "5em", display: "flex", alignItems: "center" }}
+                    >
+                      {word}
+                    </Card.Header>
+                  ))}
+                </div>
+              </Segment>
+              <Tab
+                panes={panes}
+                style={{
+                  boxShadow: "none",
+                  width: "100%",
+                  height: "100%",
+                  border: "none",
+                }}
+              />
+            </Card.Content>
+          </Card>
+        </Container>
+      ) : (
         <Container style={{ paddingTop: 105 }}>
           <Card fluid style={{ boxShadow: "none", backgroundColor: "#f2bb4e" }}>
             <Card.Content textAlign="center">

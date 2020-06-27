@@ -11,3 +11,14 @@ div.item > .text {
 .visible.menu.transition {
   background-color: #f3ede3 !important;
 }
+
+.ui.attached.tabular.menu {
+  border: none;
+  font-size: 1.25em;
+}
+
+.ui.attached.tabular.menu > .active.item {
+  border: none;
+  background-color: #1e1610;
+  color: #f3ede3;
+}

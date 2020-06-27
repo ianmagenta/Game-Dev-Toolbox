@@ -55,12 +55,12 @@ const Profile = () => {
                   {tags.map((item, index) => (
                     <Table.Row key={item.tool.tool_name}>
                       <Table.Cell>
-                        <Header
-                          as="h1"
-                          icon="tag"
-                          content={item.tool.tool_name}
-                          style={{ color: "#f3ede3", margin: 0 }}
-                        />
+                        <Header as="h1" icon="tag" style={{ color: "#f3ede3", margin: 0 }}>
+                          <Link to={`/tools/${item.tool.id}`} className="tag-links">
+                            <Icon name="tag" />
+                            {item.tool.tool_name}
+                          </Link>
+                        </Header>
                       </Table.Cell>
                       <Table.Cell textAlign="right">
                         <Label style={{ color: "#1e1610", backgroundColor: "#f3ede3", textAlign: "center" }}>
@@ -138,7 +138,19 @@ const Profile = () => {
                   justifyContent: "space-evenly",
                 }}
               >
-                <Image size="medium" circular src={user.picture} />
+                <Segment
+                  inverted
+                  circular
+                  style={{
+                    boxShadow: "none",
+                    backgroundColor: "#f3ede3",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Image size="medium" circular src={user.picture} />
+                </Segment>
 
                 <div
                   style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}
@@ -179,15 +191,28 @@ const Profile = () => {
                   height: "100%",
                   display: "flex",
                   justifyContent: "space-evenly",
+                  alignItems: "center",
                 }}
               >
-                <Icon
-                  size="massive"
+                <Segment
                   inverted
                   circular
-                  name="user"
-                  style={{ backgroundColor: "#1e1610", color: "#f3ede3" }}
-                />
+                  style={{
+                    boxShadow: "none",
+                    backgroundColor: "#f3ede3",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Icon
+                    size="massive"
+                    inverted
+                    circular
+                    name="user"
+                    style={{ backgroundColor: "#1e1610", color: "#f3ede3" }}
+                  />
+                </Segment>
                 <Icon
                   size="massive"
                   inverted

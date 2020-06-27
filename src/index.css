@@ -22,3 +22,21 @@ div.item > .text {
   background-color: #1e1610;
   color: #f3ede3;
 }
+
+a.tag-links {
+  color: #f3ede3;
+  opacity: 0.5;
+}
+
+a.tag-links:hover {
+  color: #f3ede3;
+  opacity: 1;
+}
+
+.ui.loading.segment:before {
+  background: none;
+}
+
+.ui.loading.segment:after {
+  border-color: #f3ede3 transparent transparent transparent !important;
+}

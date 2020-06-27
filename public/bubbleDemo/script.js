@@ -26,169 +26,169 @@ for (let i = 0; i < divId.length; i++) {
       divId[
         i
       ].style.backgroundImage = `url('https://upload.wikimedia.org/wikipedia/commons/3/35/The_C_Programming_Language_logo.svg')`;
-      divId[i].title = "C<br>Programming Languague";
+      divId[i].information = "C<br>Programming Languague";
       divId[i].linkTo = 3;
       break;
     case 1:
       divId[
         i
       ].style.backgroundImage = `url('https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg')`;
-      divId[i].title = "C++<br>Programming Languague";
+      divId[i].information = "C++<br>Programming Languague";
       divId[i].linkTo = 2;
       break;
     case 2:
       divId[i].style.backgroundImage = `url('https://upload.wikimedia.org/wikipedia/commons/7/7a/C_Sharp_logo.svg')`;
-      divId[i].title = "C#<br>Programming Languague";
+      divId[i].information = "C#<br>Programming Languague";
       divId[i].linkTo = 1;
       break;
     case 3:
       divId[
         i
       ].style.backgroundImage = `url('https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg')`;
-      divId[i].title = "Python<br>Programming Languague";
+      divId[i].information = "Python<br>Programming Languague";
       divId[i].linkTo = 4;
       break;
     case 4:
       divId[i].style.backgroundImage = `url('https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png')`;
-      divId[i].title = "JavaScript<br>Programming Languague";
+      divId[i].information = "JavaScript<br>Programming Languague";
       divId[i].linkTo = 5;
       break;
     case 5:
       divId[i].style.backgroundImage = `url('https://upload.wikimedia.org/wikipedia/commons/c/cf/Lua-Logo.svg')`;
-      divId[i].title = "Lua<br>Programming Languague";
+      divId[i].information = "Lua<br>Programming Languague";
       divId[i].linkTo = 6;
       break;
     case 6:
       divId[i].style.backgroundImage = `url('https://haxe.org/img/branding/haxe-logo-glyph.svg')`;
-      divId[i].title = "Haxe<br>Programming Languague";
+      divId[i].information = "Haxe<br>Programming Languague";
       divId[i].linkTo = 7;
       break;
     case 7:
       divId[
         i
       ].style.backgroundImage = `url('https://godotengine.org/themes/godotengine/assets/download/godot_logo.svg')`;
-      divId[i].title = "Godot<br>Game Engine";
+      divId[i].information = "Godot<br>Game Engine";
       divId[i].linkTo = 8;
       break;
     case 8:
       divId[
         i
       ].style.backgroundImage = `url('https://www.cryengine.com/assets/brand-assets/cryengine-logo-vertical-white.svg')`;
-      divId[i].title = "CryEngine<br>Game Engine";
+      divId[i].information = "CryEngine<br>Game Engine";
       divId[i].linkTo = 10;
       break;
     case 9:
       divId[
         i
       ].style.backgroundImage = `url('https://cdn2.unrealengine.com/Unreal+Engine%2Flogos%2FUnreal_Engine_White-1125x1280-0ac2243552326055d20928902aa57370acacd000.png')`;
-      divId[i].title = "Unreal<br>Game Engine";
+      divId[i].information = "Unreal<br>Game Engine";
       divId[i].linkTo = 12;
       break;
     case 10:
       divId[
         i
       ].style.backgroundImage = `url('https://raw.githubusercontent.com/love2d/love/60278b0532036d404c0b7b011c7b63ab58a5ddaf/platform/unix/love.svg')`;
-      divId[i].title = "LÖVE<br>Framework";
+      divId[i].information = "LÖVE<br>Framework";
       divId[i].linkTo = 27;
       break;
     case 11:
       divId[
         i
       ].style.backgroundImage = `url('https://raw.githubusercontent.com/LMMS/artwork/master/Icon%20%26%20Mimetypes/lmms-64x64.svg')`;
-      divId[i].title = "LMMS<br>Music Tool";
+      divId[i].information = "LMMS<br>Music Tool";
       divId[i].linkTo = 24;
       break;
     case 12:
       divId[i].style.backgroundImage = `url('https://img.itch.zone/aW1nLzI0NDE3MjgucG5n/original/6JTXjR.png')`;
-      divId[i].title = "Ogmo<br>Level Editor";
+      divId[i].information = "Ogmo<br>Level Editor";
       divId[i].linkTo = 15;
       break;
     case 13:
       divId[i].style.backgroundImage = `url('https://www.aseprite.org/assets/images/header-logo.png')`;
-      divId[i].title = "Aseprite<br>2D Art Tool";
+      divId[i].information = "Aseprite<br>2D Art Tool";
       divId[i].linkTo = 16;
       break;
     case 14:
       divId[i].style.backgroundImage = `url('https://pyxeledit.com/images/logo_heart.png')`;
-      divId[i].title = "Pyxel Edit<br>2D Art Tool";
+      divId[i].information = "Pyxel Edit<br>2D Art Tool";
       divId[i].linkTo = 17;
       break;
     case 15:
       divId[i].style.backgroundImage = `url('https://download.blender.org/branding/blender_logo_socket.svg')`;
-      divId[i].title = "Blender<br>3D Art Tool";
+      divId[i].information = "Blender<br>3D Art Tool";
       divId[i].linkTo = 18;
       break;
     case 16:
       divId[i].style.backgroundImage = `url('https://www.mapeditor.org/img/tiled-logo-white.png')`;
-      divId[i].title = "Tiled<br>Level Editor";
+      divId[i].information = "Tiled<br>Level Editor";
       divId[i].linkTo = 14;
       break;
     case 17:
       divId[i].style.backgroundImage = `url('https://upload.wikimedia.org/wikipedia/commons/3/33/PICO-8_logo.png')`;
-      divId[i].title = "PICO-8<br>Fantasy Console";
+      divId[i].information = "PICO-8<br>Fantasy Console";
       divId[i].linkTo = 33;
       break;
     case 18:
       divId[i].style.backgroundImage = `url('https://tic.computer/img/logo64.png')`;
-      divId[i].title = "TIC-80<br>Fantasy Console";
+      divId[i].information = "TIC-80<br>Fantasy Console";
       divId[i].linkTo = 34;
       break;
     case 19:
       divId[i].style.backgroundImage = `url('https://famistudio.org/famistudio.png')`;
-      divId[i].title = "FamiStudio<br>Music Tool";
+      divId[i].information = "FamiStudio<br>Music Tool";
       divId[i].linkTo = 25;
       break;
     case 20:
       divId[i].style.backgroundImage = `url('https://www.raylib.com/common/img/raylib_logo.png')`;
-      divId[i].title = "raylib<br>Framework";
+      divId[i].information = "raylib<br>Framework";
       divId[i].linkTo = 28;
       break;
     case 21:
       divId[
         i
       ].style.backgroundImage = `url('https://img.itch.zone/aW1hZ2UvMzE5MjYvMTM1NzcwLnBuZw==/original/32QXIc.png')`;
-      divId[i].title = "Bosca Ceoil<br>Music Tool";
+      divId[i].information = "Bosca Ceoil<br>Music Tool";
       divId[i].linkTo = 26;
       break;
     case 22:
       divId[i].style.backgroundImage = `url('https://www.pygame.org/docs/pygame_logo.gif')`;
-      divId[i].title = "pygame<br>Framework";
+      divId[i].information = "pygame<br>Framework";
       divId[i].linkTo = 29;
       break;
     case 23:
       divId[
         i
       ].style.backgroundImage = `url('https://raw.githubusercontent.com/HeapsIO/heaps.io/master/assets/logo/logo-heaps-color.png')`;
-      divId[i].title = "Heaps<br>Framework";
+      divId[i].information = "Heaps<br>Framework";
       divId[i].linkTo = 30;
       break;
     case 24:
       divId[i].style.backgroundImage = `url('https://upload.wikimedia.org/wikipedia/en/f/f2/Lumberyard_Logo.png')`;
-      divId[i].title = "Amazon Lumberyard<br>Game Engine";
+      divId[i].information = "Amazon Lumberyard<br>Game Engine";
       divId[i].linkTo = 11;
       break;
     case 25:
       divId[
         i
       ].style.backgroundImage = `url('https://upload.wikimedia.org/wikipedia/commons/6/67/Source_engine_logo_and_wordmark.svg')`;
-      divId[i].title = "Source<br>Game Engine";
+      divId[i].information = "Source<br>Game Engine";
       divId[i].linkTo = 13;
       break;
     case 26:
       divId[
         i
       ].style.backgroundImage = `url('https://s3-us-west-1.amazonaws.com/shader-frog/shader-frog-logo-small.png')`;
-      divId[i].title = "ShaderFrog<br>Shader Tool";
+      divId[i].information = "ShaderFrog<br>Shader Tool";
       divId[i].linkTo = 21;
       break;
     case 27:
       divId[i].style.backgroundImage = `url('https://www.libsdl.org/media/SDL_logo.png')`;
-      divId[i].title = "SDL<br>Library";
+      divId[i].information = "SDL<br>Library";
       divId[i].linkTo = 31;
       break;
     case 28:
       divId[i].style.backgroundImage = `url('https://www.opengl.org/img/opengl_logo.jpg')`;
-      divId[i].title = "OpenGL<br>Library";
+      divId[i].information = "OpenGL<br>Library";
       divId[i].linkTo = 32;
       break;
     default:
@@ -854,7 +854,7 @@ var main = {
     const textSelect = document.querySelector(".project__text");
     let titleText = textSelect.children[0];
     let paragraphText = textSelect.children[1];
-    titleText.innerHTML = parent.title;
+    titleText.innerHTML = parent.information;
     paragraphText.addEventListener("click", (e) => {
       e.preventDefault();
       window.parent.postMessage({ bubbles: "hi there!", data: parent.linkTo }, "*");

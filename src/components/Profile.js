@@ -86,13 +86,30 @@ const Profile = () => {
     {
       menuItem: { key: "projects", icon: "edit", content: "Projects" },
       render: () => (
-        <Tab.Pane style={{ color: "#f3ede3", backgroundColor: "#1e1610", border: "none" }}>Tab 2 Content</Tab.Pane>
+        <Tab.Pane style={{ color: "#f3ede3", backgroundColor: "#1e1610", border: "none" }}>
+          <Header style={{ color: "#f3ede3", paddingTop: 10, fontSize: "4em" }} as="h1" icon>
+            <Icon name="warning sign" />
+            Under Construction
+            <Header style={{ color: "#f3ede3", fontSize: "0.5em", margin: 0 }}>
+              This part of the site isn't ready yet, but check back soon!
+            </Header>
+          </Header>
+        </Tab.Pane>
       ),
     },
     {
       menuItem: { key: "likes", icon: "heart", content: "Likes" },
       render: () => (
-        <Tab.Pane style={{ color: "#f3ede3", backgroundColor: "#1e1610", border: "none" }}>Tab 3 Content</Tab.Pane>
+        <Tab.Pane style={{ color: "#f3ede3", backgroundColor: "#1e1610", border: "none" }}>
+          {" "}
+          <Header style={{ color: "#f3ede3", paddingTop: 10, fontSize: "4em" }} as="h1" icon>
+            <Icon name="warning sign" />
+            Under Construction
+            <Header style={{ color: "#f3ede3", fontSize: "0.5em", margin: 0 }}>
+              This part of the site isn't ready yet, but check back soon!
+            </Header>
+          </Header>
+        </Tab.Pane>
       ),
     },
   ];

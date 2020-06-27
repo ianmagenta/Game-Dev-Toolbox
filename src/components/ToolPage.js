@@ -17,7 +17,7 @@ import {
 } from "semantic-ui-react";
 import axios from "axios";
 import { api } from "../config";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 const ToolPage = (props) => {
   const { isAuthenticated, user, getTokenSilently, loginWithPopup } = useAuth0();
@@ -96,48 +96,48 @@ const ToolPage = (props) => {
 
   return (
     <>
+      {(toolId < 1 || toolId > 34) && <Redirect to="/404" />}
       <Container style={{ paddingTop: 105 }}>
         <Grid centered>
           <Grid.Row columns={2}>
             <Grid.Column style={{ display: "flex", justifyContent: "center" }}>
-              <Card
-                fluid
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  boxShadow: "none",
-                  backgroundColor: "#f2bb4e",
-                }}
-              >
-                <Segment
-                  inverted
-                  style={{ boxShadow: "none", backgroundColor: "#1e1610", width: "94%", height: "92%" }}
-                >
-                  <div
+              <Card fluid style={{ boxShadow: "none", backgroundColor: "#f2bb4e" }}>
+                <Card.Content textAlign="center">
+                  <Segment
+                    inverted
                     style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      height: "100%",
+                      boxShadow: "none",
+                      backgroundColor: "#1e1610",
                       width: "100%",
-                      alignItems: "center",
+                      height: "100%",
+                      display: "flex",
+                      justifyContent: "space-evenly",
                     }}
                   >
-                    {image ? (
-                      <Image size="medium" centered src={image} style={{ maxWidth: "max-content" }}></Image>
-                    ) : image === null || image === undefined ? (
-                      <Icon
-                        size="huge"
-                        inverted
-                        circular
-                        name="question"
-                        style={{ backgroundColor: "transparent" }}
-                      ></Icon>
-                    ) : (
-                      <Progress active percent={100} color="black" style={{ width: "100%" }} />
-                    )}
-                  </div>
-                </Segment>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        width: "100%",
+                        alignItems: "center",
+                      }}
+                    >
+                      {image ? (
+                        <Image size="medium" centered src={image} style={{ maxWidth: "max-content" }}></Image>
+                      ) : image === null || image === undefined ? (
+                        <Icon
+                          size="huge"
+                          inverted
+                          circular
+                          name="question"
+                          style={{ backgroundColor: "transparent" }}
+                        ></Icon>
+                      ) : (
+                        <Progress active percent={100} style={{ width: "100%" }} />
+                      )}
+                    </div>
+                  </Segment>
+                </Card.Content>
               </Card>
             </Grid.Column>
             <Grid.Column style={{ display: "flex", justifyContent: "center" }}>
@@ -190,7 +190,7 @@ const ToolPage = (props) => {
                     }}
                   >
                     <Card.Header as="h1" style={{ color: "#f3ede3", fontSize: "3em" }}>
-                      {name ? name : <Progress active percent={100} color="black" />}
+                      {name ? name : <Progress active percent={100} />}
                     </Card.Header>
                     {type && (
                       <>

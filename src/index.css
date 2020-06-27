@@ -40,3 +40,16 @@ a.tag-links:hover {
 .ui.loading.segment:after {
   border-color: #f3ede3 transparent transparent transparent !important;
 }
+
+.bar {
+  background-color: transparent !important;
+}
+
+.ui.active.progress .bar::after {
+  background-color: #f3ede3;
+}
+
+.ui.active.progress {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}

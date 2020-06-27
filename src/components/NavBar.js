@@ -37,13 +37,28 @@ const NavBar = (props) => {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.pathname === "/profile") {
-      setActiveItem("user");
-    } else if (location.pathname === "/") {
-      setActiveItem("home");
-    } else if (location.pathname === "/info") {
-    } else {
-      setActiveItem("none");
+    switch (location.pathname) {
+      case "/":
+        setActiveItem("home");
+        break;
+      case "/profile":
+        setActiveItem("user");
+        break;
+      case "/info":
+        setActiveItem("info");
+        break;
+      case "/explore":
+        setActiveItem("map");
+        break;
+      case "/projects":
+        setActiveItem("edit");
+        break;
+      case "/search":
+        setActiveItem("search");
+        break;
+      default:
+        setActiveItem("none");
+        break;
     }
   }, [location]);
 
@@ -92,16 +107,16 @@ const NavBar = (props) => {
 
         <Container style={{ display: "flex", justifyContent: "center" }} textAlign="center"></Container>
 
-        <Menu.Item name="map" active={activeItem === "map"} onClick={handleItemClick} as={Link} to="/">
+        <Menu.Item name="map" active={activeItem === "map"} onClick={handleItemClick} as={Link} to="/explore">
           <Icon size="large" inverted circular name="map" style={{ backgroundColor: "#1e1610", color: "#f3ede3" }} />
         </Menu.Item>
-        <Menu.Item name="edit" active={activeItem === "edit"} onClick={handleItemClick} as={Link} to="/">
+        <Menu.Item name="edit" active={activeItem === "edit"} onClick={handleItemClick} as={Link} to="/projects">
           <Icon size="large" inverted circular name="edit" style={{ backgroundColor: "#1e1610", color: "#f3ede3" }} />
         </Menu.Item>
-        <Menu.Item name="search" active={activeItem === "search"} onClick={handleItemClick} as={Link} to="/">
+        <Menu.Item name="search" active={activeItem === "search"} onClick={handleItemClick} as={Link} to="/search">
           <Icon size="large" inverted circular name="search" style={{ backgroundColor: "#1e1610", color: "#f3ede3" }} />
         </Menu.Item>
-        <Menu.Item name="info" active={activeItem === "info"} onClick={handleItemClick} as={Link} to="/">
+        <Menu.Item name="info" active={activeItem === "info"} onClick={handleItemClick} as={Link} to="/info">
           <Icon size="large" inverted circular name="info" style={{ backgroundColor: "#1e1610", color: "#f3ede3" }} />
         </Menu.Item>
         <Menu.Item name="user" active={activeItem === "user"} onClick={handleItemClick} as={Link} to="/profile">

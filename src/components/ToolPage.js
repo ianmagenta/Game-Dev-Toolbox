@@ -1,20 +1,6 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuth0 } from "../react-auth0-spa";
-import {
-  Segment,
-  Container,
-  Grid,
-  Image,
-  Placeholder,
-  Dimmer,
-  Progress,
-  Header,
-  Icon,
-  Label,
-  Card,
-  Divider,
-  Loader,
-} from "semantic-ui-react";
+import { Segment, Container, Grid, Image, Progress, Icon, Label, Card, Responsive } from "semantic-ui-react";
 import axios from "axios";
 import { api } from "../config";
 import { Link, Redirect } from "react-router-dom";
@@ -96,7 +82,7 @@ const ToolPage = (props) => {
 
   return (
     <>
-      {(toolId < 1 || toolId > 38) && <Redirect to="/404" />}
+      {(toolId < 1 || toolId > 38 || /[a-zA-Z]/.test(toolId)) && <Redirect to="/404" />}
       <Container style={{ paddingTop: 105 }}>
         <Grid centered>
           <Grid.Row columns={2}>
@@ -142,40 +128,78 @@ const ToolPage = (props) => {
             </Grid.Column>
             <Grid.Column style={{ display: "flex", justifyContent: "center" }}>
               <Card fluid style={{ boxShadow: "none", backgroundColor: "#f2bb4e" }}>
-                {name && (
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: -17,
-                      right: 100,
-                    }}
-                  >
-                    {loadingTag ? (
-                      <Label floating style={{ color: "#1e1610", backgroundColor: "#f3ede3", textAlign: "center" }}>
-                        <a
-                          style={{
-                            display: "flex",
-                            alignItems: "center",
-                            fontSize: "1.25em",
-                            pointerEvents: "none",
-                          }}
-                        >
-                          <Icon size="big" loading name="circle notch" style={{ margin: "auto" }} />
-                        </a>
-                      </Label>
-                    ) : (
-                      <Label floating style={{ color: "#1e1610", backgroundColor: "#f3ede3", textAlign: "center" }}>
-                        <a
-                          style={{ display: "flex", alignItems: "center", fontSize: "1.25em" }}
-                          onClick={handleTagClick}
-                        >
-                          {tagged ? <Icon name="check"></Icon> : <Icon name="tag"></Icon>}
-                          {tagged ? "Tool Tagged" : "Tag this Tool"}
-                        </a>
-                      </Label>
-                    )}
-                  </div>
-                )}
+                <Responsive minWidth={800}>
+                  {name && (
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: -17,
+                        right: 100,
+                      }}
+                    >
+                      {loadingTag ? (
+                        <Label floating style={{ color: "#1e1610", backgroundColor: "#f3ede3", textAlign: "center" }}>
+                          <a
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              fontSize: "1.25em",
+                              pointerEvents: "none",
+                            }}
+                          >
+                            <Icon size="big" loading name="circle notch" style={{ margin: "auto" }} />
+                          </a>
+                        </Label>
+                      ) : (
+                        <Label floating style={{ color: "#1e1610", backgroundColor: "#f3ede3", textAlign: "center" }}>
+                          <a
+                            style={{ display: "flex", alignItems: "center", fontSize: "1.25em" }}
+                            onClick={handleTagClick}
+                          >
+                            {tagged ? <Icon name="check"></Icon> : <Icon name="tag"></Icon>}
+                            {tagged ? "Tool Tagged" : "Tag this Tool"}
+                          </a>
+                        </Label>
+                      )}
+                    </div>
+                  )}
+                </Responsive>
+                <Responsive maxWidth={800}>
+                  {name && (
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: -17,
+                        right: 300,
+                      }}
+                    >
+                      {loadingTag ? (
+                        <Label floating style={{ color: "#1e1610", backgroundColor: "#f3ede3", textAlign: "center" }}>
+                          <a
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              fontSize: "1.25em",
+                              pointerEvents: "none",
+                            }}
+                          >
+                            <Icon size="big" loading name="circle notch" style={{ margin: "auto" }} />
+                          </a>
+                        </Label>
+                      ) : (
+                        <Label floating style={{ color: "#1e1610", backgroundColor: "#f3ede3", textAlign: "center" }}>
+                          <a
+                            style={{ display: "flex", alignItems: "center", fontSize: "1.25em" }}
+                            onClick={handleTagClick}
+                          >
+                            {tagged ? <Icon name="check"></Icon> : <Icon name="tag"></Icon>}
+                            {tagged ? "Tool Tagged" : "Tag this Tool"}
+                          </a>
+                        </Label>
+                      )}
+                    </div>
+                  )}
+                </Responsive>
                 <Card.Content textAlign="center">
                   <Segment
                     inverted

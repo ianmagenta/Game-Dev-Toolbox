@@ -25,15 +25,13 @@
 // export default NavBar;
 
 import React, { useState, useEffect } from "react";
-import { Container, Header, Image, Menu, Icon, Label, Dropdown } from "semantic-ui-react";
-import { Link, useLocation, Redirect } from "react-router-dom";
+import { Container, Header, Image, Menu, Icon, Label } from "semantic-ui-react";
+import { Link, useLocation } from "react-router-dom";
 import { useAuth0 } from "../react-auth0-spa";
 
 const NavBar = (props) => {
-  const { isAuthenticated, loginWithPopup, logout, user } = useAuth0();
+  const { loginWithPopup, logout, user } = useAuth0();
   const [activeItem, setActiveItem] = useState("home");
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [linkToProfile, setLinkToProfile] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -156,7 +154,7 @@ const NavBar = (props) => {
         style={{
           display: "flex",
           justifyContent: "center",
-          position: "absolute",
+          position: "fixed",
           top: 70,
           right: 0,
           width: 79.28,

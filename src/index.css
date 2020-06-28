@@ -64,3 +64,18 @@ input.prompt {
 .ui.input {
   color: #1e1610;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #f2bb4e;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #1e1610;
+}

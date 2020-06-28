@@ -131,12 +131,7 @@ const SiteSearch = () => {
             ))
           ) : searchTools.length > 0 ? (
             <div style={{ display: "flex", justifyContent: "center", marginTop: 30 }}>
-              <Header
-                as="h1"
-                icon="question"
-                content="No Results Found"
-                style={{ color: "#f3ede3", fontSize: "3em" }}
-              />
+              <Header as="h1" content="— No Results Found —" style={{ color: "#f3ede3", fontSize: "3em" }} />
             </div>
           ) : (
             <div style={{ display: "flex", justifyContent: "center" }}>

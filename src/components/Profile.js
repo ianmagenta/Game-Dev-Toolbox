@@ -126,7 +126,6 @@ const Profile = () => {
           },
           method: "get",
         });
-        console.log(Object.values(res.data));
         setTags(Object.values(res.data));
         setLoadingTags(false);
       }

@@ -14,6 +14,7 @@ import Bubbles from "./components/Bubbles";
 import UnderConstruction from "./components/UnderConstruction";
 import FourOhFour from "./components/FourOhFour";
 import Search from "./components/Search";
+import Info from "./components/Info";
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
             <Route exact path="/explore" component={UnderConstruction} />
             <Route exact path="/projects" component={UnderConstruction} />
             <Route exact path="/search" component={Search} />
-            <Route exact path="/info" component={UnderConstruction} />
+            <Route exact path="/info" component={Info} />
             <Route exact path="/404" component={FourOhFour} />
             <Redirect to="/404" />
           </Switch>

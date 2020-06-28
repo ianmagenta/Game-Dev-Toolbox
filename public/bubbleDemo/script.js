@@ -6,19 +6,49 @@
 
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-let array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28];
-let len = array.length;
+var randomizerArray = [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23,
+  24,
+  25,
+  26,
+  27,
+  28,
+];
+var len = randomizerArray.length;
 
 function getRandomItem() {
-  if (len <= 0) len = array.length;
+  if (len <= 0) len = randomizerArray.length;
   let item = Math.floor(Math.random() * len--);
-  let x = array[item];
-  array[item] = array[len];
-  array[len] = x;
-  return array[len];
+  let x = randomizerArray[item];
+  randomizerArray[item] = randomizerArray[len];
+  randomizerArray[len] = x;
+  return randomizerArray[len];
 }
 
-const divId = document.querySelectorAll('*[id^="js-particle-"]');
+var divId = document.querySelectorAll('*[id^="js-particle-"]');
 for (let i = 0; i < divId.length; i++) {
   const randomNumber = getRandomItem();
   switch (randomNumber) {

@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Container, Card, Segment, Icon, Header, Search, Image, Label } from "semantic-ui-react";
-import { useAuth0 } from "../react-auth0-spa";
+import { Container, Card, Segment, Icon, Header, Search, Image } from "semantic-ui-react";
 import axios from "axios";
 import { api } from "../config";
 import { Link } from "react-router-dom";
 
 const SiteSearch = () => {
-  const { user, isAuthenticated, loginWithPopup, getTokenSilently } = useAuth0();
   const [tools, setTools] = useState([]);
   const [searchTools, setSearchTools] = useState([]);
 

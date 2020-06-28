@@ -9,8 +9,8 @@ The world of game development is flooded with all sorts of helpful tools. From e
 That's where **Game Dev Toolbox** (**GDT**) comes in! **GDT** makes it simple to search through and discover a variety of tools that make game development fast and fun. Assemble your favorites with the site's Build Editor and (if you'd like) share with the world all of the technologies your game is built on.
 
 ## Demo User Login
-User: demoadmin@demo.com
-Password: DemoAdmin0
+- User: demoadmin@demo.com
+- Password: DemoAdmin0
 
 ## Technologies Used
 

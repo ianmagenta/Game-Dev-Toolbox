@@ -23,7 +23,7 @@ const FourOhFour = () => {
             >
               <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                 <Header style={{ color: "#f3ede3", paddingTop: 10, fontSize: "4em" }} as="h1" icon>
-                  <Icon name="question" />
+                  <Icon loading name="question" />
                   404 - Page Not Found
                 </Header>
                 <Label style={{ color: "#1e1610", backgroundColor: "#f3ede3", textAlign: "center", marginBottom: 10 }}>

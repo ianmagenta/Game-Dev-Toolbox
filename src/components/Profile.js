@@ -43,7 +43,7 @@ const Profile = () => {
                   <Table.Cell textAlign="center">
                     <Header as="h1" content={"— Nothing Here Yet —"} style={{ color: "#f3ede3" }} />
                     <Label style={{ color: "#1e1610", backgroundColor: "#f3ede3", textAlign: "center" }}>
-                      <Link to="/tools/3" style={{ display: "flex", alignItems: "center", fontSize: "1.5em" }}>
+                      <Link to="/search" style={{ display: "flex", alignItems: "center", fontSize: "1.5em" }}>
                         <Icon name="tag"></Icon>
                         Tag some tools!
                       </Link>

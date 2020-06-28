@@ -96,7 +96,7 @@ const ToolPage = (props) => {
 
   return (
     <>
-      {(toolId < 1 || toolId > 34) && <Redirect to="/404" />}
+      {(toolId < 1 || toolId > 38) && <Redirect to="/404" />}
       <Container style={{ paddingTop: 105 }}>
         <Grid centered>
           <Grid.Row columns={2}>

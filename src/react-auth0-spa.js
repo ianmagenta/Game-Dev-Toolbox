@@ -33,15 +33,15 @@ export const Auth0Provider = ({ children, onRedirectCallback = DEFAULT_REDIRECT_
         const user = await auth0FromHook.getUser();
 
         // Everything in this block was added by me.
-        const token = await auth0FromHook.getTokenSilently();
-        await axios({
-          url: `${api}/users`,
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          method: "post",
-          data: user,
-        });
+        // const token = await auth0FromHook.getTokenSilently();
+        // await axios({
+        //   url: `${api}/users`,
+        //   headers: {
+        //     Authorization: `Bearer ${token}`,
+        //   },
+        //   method: "post",
+        //   data: user,
+        // });
         // End of custom block.
 
         setUser(user);
@@ -63,6 +63,19 @@ export const Auth0Provider = ({ children, onRedirectCallback = DEFAULT_REDIRECT_
       setPopupOpen(false);
     }
     const user = await auth0Client.getUser();
+
+    // custom
+    const token = await auth0Client.getTokenSilently();
+    await axios({
+      url: `${api}/users`,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      method: "post",
+      data: user,
+    });
+    // end custom
+
     setUser(user);
     setIsAuthenticated(true);
   };
